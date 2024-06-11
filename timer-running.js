@@ -5,7 +5,7 @@ let add_btn = document.querySelector(".add-btn");
 let user_info_input = document.querySelector("#user-info-input");
 let modal_close_btn = document.querySelector("#modal_close_btn");
 
-// add data
+// user data
 
 // add user function
 add_btn.addEventListener("click", () => {
@@ -69,11 +69,24 @@ function loading() {
         percentage = 0
       setnewcode();
     }
-  }, 100);
+  }, 500);
 }
 
 loading();
 
+//online check
+window.addEventListener('online', () => {
+    let cloudsvg =document.querySelector('.bi-cloud-check')
+    cloudsvg.style.color = 'rgb(35, 207, 84)';
+    cloudsvg.innerHTML = ''
+  });
+  
+  window.addEventListener('offline', () => {
+    let cloudsvg =document.querySelector('.bi-cloud-check')
+    cloudsvg.style.color = 'rgba(171, 171, 171, 0.36)';
+    cloudsvg.innerHTML = '<small class="ms-2 fs-5">Offline</small>'
+  });
+  
 
 // search function
 
