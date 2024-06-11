@@ -86,6 +86,5 @@ window.addEventListener('online', () => {
   });
   
 
-// search function
 
 // search bar
