@@ -1,1 +1,155 @@
-google auth. ui project
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  />
+  <style>
+    nav ul li {
+      list-style: none;
+      margin-top: 10px;
+    }
+    a{
+      text-decoration: none;
+      color: white;
+    }
+    #profile-img{
+        height: 40px;
+        width: 40px;
+        background-image: url('https://images.unsplash.com/photo-1633977264416-8c66c1300e63?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+        background-size: cover;
+        border-radius: 90px;
+    }
+    .useraccount-name{
+        margin-bottom:0rem;
+    }
+    .user-account-code{
+        font-weight: 600;
+        font-size: 2.6rem;
+        margin-bottom: 0rem;
+    }    
+    .bb-front{
+        color: rgb(71, 160, 233);
+    }
+    .bg-custom-cyan{
+        background-color: rgb(71, 160, 233);
+    }
+    .circle-timer {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: conic-gradient(rgb(105, 180, 255) 30%, rgba(255, 255, 255, 0) 0);
+        }
+        #add-btn{
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background:rgb(86, 86, 86);
+            box-shadow: 2px 2px 5px rgba(2, 2, 2, 0.446);
+        }
+  </style>
+  <body class="m-2">
+    <nav class="d-flex justify-content-between m-2 align-items-center"> 
+        <div class="left-side-nav d-flex align-items-center"><button
+            class="btn"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#staticBackdrop"
+            aria-controls="staticBackdrop"
+          >
+            <i class="bi bi-list fs-3" style="position: relative; bottom: 3px;"></i>
+          </button>
+          <h3>Google Authenticator</h3></div>
+      <div class="right-side-nav d-flex align-items-center">
+        <i class="bi bi-cloud-check mx-4 fs-2" style="color: rgb(35, 207, 84);"></i>
+        <div class="profile-img me-3" id="profile-img">
+        </div>
+      </div>
+      <div
+        class="offcanvas offcanvas-start"
+        data-bs-backdrop="static"
+        tabindex="-1"
+        id="staticBackdrop"
+        aria-labelledby="staticBackdropLabel"
+      >
+        <div class="offcanvas-header">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            <ul>
+              <li><a href="#">Authenticator codes</a></li>
+              <li><a href="#">How it works</a></li>
+              <li><a href="#">Transfer accounts</a></li>
+              <li><a href="#">Settings</a></li>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Send feedback</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- search-box -->
+     <div class="container-fluid px-4">
+        <input type="text" class="form-control shadow-sm py-3" placeholder="Search..." style="border: none;background-color: rgb(63, 63, 63);">
+     </div>
+<!-- all users info -->
+ <div class="container-fluid px-4 mt-1">
+    <ul class="list-group list-group-flush users-container">
+        <li class="list-group-item d-flex justify-content-between">
+            <div class="user-info" style="width: 100%;">
+                <p class="fw-normal fs-6 useraccount-name">Instagram: username: mynameisflash</p>
+                <div class="d-flex align-items-center justify-content-between">
+                    <h1 class="user-account-code bb-front">238 293</h1>
+                    <div class="circle-timer"></div>
+                </div>
+            </div>
+        </li>
+      </ul>
+ </div>
+
+ <!-- modal button -->
+  <!-- Vertically centered modal -->
+  <button id="add-btn" type="button" style="height: 50px; width: 50px;" class="btn rounded-circle d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <img src="plusicon.svg" alt="">
+  </button>
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add Username</h1>
+          <button type="button" id="modal_close_btn" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <input type="email" class="py-2 form-control" id="user-info-input" aria-describedby="emailHelp" style="background: rgb(63, 63, 63);">
+              </div>
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-primary add-btn">Add user</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="timer-running.js"></script>
+
+  </body>
+</html>
