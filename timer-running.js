@@ -78,13 +78,11 @@ loading();
 window.addEventListener('online', () => {
     let cloudsvg =document.querySelector('.bi-cloud-check')
     cloudsvg.style.color = 'rgb(35, 207, 84)';
-    cloudsvg.innerHTML = ''
   });
   
   window.addEventListener('offline', () => {
     let cloudsvg =document.querySelector('.bi-cloud-check')
     cloudsvg.style.color = 'rgba(171, 171, 171, 0.36)';
-    cloudsvg.innerHTML = '<small class="ms-2 fs-5">Offline</small>'
   });
   
 
