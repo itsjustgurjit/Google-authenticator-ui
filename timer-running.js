@@ -77,3 +77,4 @@ loading();
 
 // search function
 
+// search bar
