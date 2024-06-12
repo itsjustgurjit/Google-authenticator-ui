@@ -15,7 +15,6 @@ window.addEventListener('load', () => {
   if(localStorage.getItem('user') != null){
     userdatacontainer.innerHTML = "";
   let array_of_users = localStorage.getItem('user').split(',')
-  console.log(array_of_users)
   update_users(array_of_users)
 }else{
   userdatacontainer.innerHTML= '<p class="text-center my-3">No user data</p>'
@@ -63,9 +62,6 @@ add_btn.addEventListener("click", () => {
 function update_users(array_of_users){
   userdatacontainer.innerHTML = "";
   array_of_users = localStorage.getItem("user").split(",");
-  array_of_users.forEach((element) => {
-    console.log(element)
-  })
   array_of_users.forEach((element) => {
     addthisuser(element);
   });
