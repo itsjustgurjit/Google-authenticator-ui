@@ -10,12 +10,11 @@ let modal_close_btn = document.querySelector("#modal_close_btn");
 
 window.addEventListener('load', () => {
   userdatacontainer.innerHTML = "";
-  update_users()
+  let array_of_users = localStorage.getItem('user').split(',')
+  update_users(array_of_users)
 });
 
 // usre data
-
-let array_of_users = ['sam'];
 
 // add user function
 add_btn.addEventListener("click", () => {
@@ -24,13 +23,19 @@ add_btn.addEventListener("click", () => {
     return;
   }
   addthisuser(user_info_input.value);
+  array_of_users = localStorage.getItem("user").split(",");
   array_of_users.push(user_info_input.value);
+  localStorage.setItem("user", array_of_users);
   update_users()
   user_info_input.value = "";
 });
 
-function update_users(){
+function update_users(array_of_users){
   userdatacontainer.innerHTML = "";
+  array_of_users = localStorage.getItem("user").split(",");
+  array_of_users.forEach((element) => {
+    console.log(element)
+  })
   array_of_users.forEach((element) => {
     addthisuser(element);
   });
@@ -104,9 +109,4 @@ window.addEventListener('online', () => {
     cloudsvg.style.color = 'rgba(171, 171, 171, 0.36)';
   });
   
-
-
-// search function
-// image change feature
-// search bar
 
