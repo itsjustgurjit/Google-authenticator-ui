@@ -5,7 +5,17 @@ let add_btn = document.querySelector(".add-btn");
 let user_info_input = document.querySelector("#user-info-input");
 let modal_close_btn = document.querySelector("#modal_close_btn");
 
-// user data
+
+// on page load
+
+window.addEventListener('load', () => {
+  userdatacontainer.innerHTML = "";
+  update_users()
+});
+
+// usre data
+
+let array_of_users = ['sam'];
 
 // add user function
 add_btn.addEventListener("click", () => {
@@ -14,8 +24,17 @@ add_btn.addEventListener("click", () => {
     return;
   }
   addthisuser(user_info_input.value);
+  array_of_users.push(user_info_input.value);
+  update_users()
   user_info_input.value = "";
 });
+
+function update_users(){
+  userdatacontainer.innerHTML = "";
+  array_of_users.forEach((element) => {
+    addthisuser(element);
+  });
+}
 
 function addthisuser(username) {
   let new_user_element = document.createElement("li");
