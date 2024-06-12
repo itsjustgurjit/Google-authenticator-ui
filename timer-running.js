@@ -4,15 +4,26 @@ let userdatacontainer = document.querySelector(".users-container");
 let add_btn = document.querySelector(".add-btn");
 let user_info_input = document.querySelector("#user-info-input");
 let modal_close_btn = document.querySelector("#modal_close_btn");
-
+let delete_user_data_btn = document.querySelector('#delete-all-user-data-btn')
 
 // on page load
 
 window.addEventListener('load', () => {
+  if(localStorage.getItem('user') != null){
   userdatacontainer.innerHTML = "";
   let array_of_users = localStorage.getItem('user').split(',')
+  console.log(array_of_users)
   update_users(array_of_users)
+}else{
+  userdatacontainer.innerHTML= 'no user data found'
+}
 });
+
+// delete user data function
+delete_user_data_btn.addEventListener('click', () => {
+  localStorage.clear()
+  update_users()
+})
 
 // usre data
 
