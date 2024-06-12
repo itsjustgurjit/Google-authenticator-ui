@@ -1,0 +1,70 @@
+
+nav ul li {
+  list-style: none;
+  margin-top: 10px;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+#profile-img{
+    height: 40px;
+    width: 40px;
+    background-image: url('https://images.unsplash.com/photo-1633977264416-8c66c1300e63?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    border-radius: 90px;
+    cursor: pointer;
+}
+.useraccount-name{
+    margin-bottom:0rem;
+}
+.user-account-code{
+    font-weight: 600;
+    font-size: 2.6rem;
+    margin-bottom: 0rem;
+}    
+.bb-front{
+    color: rgb(71, 160, 233);
+}
+.bg-custom-cyan{
+    background-color: rgb(71, 160, 233);
+}
+.circle-timer {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: conic-gradient(rgb(105, 180, 255) 30%, rgba(255, 255, 255, 0) 0);
+    }
+    #add-btn{
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background:rgb(86, 86, 86);
+        box-shadow: 2px 2px 5px rgba(2, 2, 2, 0.446);
+    }
+    body {
+overflow: auto;
+}
+
+body::-webkit-scrollbar {
+width: 8px; /* Width of the vertical scrollbar */
+height: 8px; /* Height of the horizontal scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+background: rgba(0, 0, 0, 0.1); /* Light gray background */
+border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+background: rgba(0, 0, 0, 0.5); /* Darker gray background */
+border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+background: rgba(0, 0, 0, 0.7); /* Even darker on hover */
+}
+
+body::-webkit-scrollbar-thumb:active {
+background: rgba(0, 0, 0, 0.9); /* Even darker when active */
+}

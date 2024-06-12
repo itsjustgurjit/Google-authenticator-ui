@@ -13,77 +13,7 @@
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
   />
-  <style>
-    nav ul li {
-      list-style: none;
-      margin-top: 10px;
-    }
-    a{
-      text-decoration: none;
-      color: white;
-    }
-    #profile-img{
-        height: 40px;
-        width: 40px;
-        background-image: url('https://images.unsplash.com/photo-1633977264416-8c66c1300e63?q=80&w=2864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-        background-size: cover;
-        border-radius: 90px;
-        cursor: pointer;
-    }
-    .useraccount-name{
-        margin-bottom:0rem;
-    }
-    .user-account-code{
-        font-weight: 600;
-        font-size: 2.6rem;
-        margin-bottom: 0rem;
-    }    
-    .bb-front{
-        color: rgb(71, 160, 233);
-    }
-    .bg-custom-cyan{
-        background-color: rgb(71, 160, 233);
-    }
-    .circle-timer {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: conic-gradient(rgb(105, 180, 255) 30%, rgba(255, 255, 255, 0) 0);
-        }
-        #add-btn{
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background:rgb(86, 86, 86);
-            box-shadow: 2px 2px 5px rgba(2, 2, 2, 0.446);
-        }
-        body {
-    overflow: auto;
-}
-
-body::-webkit-scrollbar {
-    width: 8px; /* Width of the vertical scrollbar */
-    height: 8px; /* Height of the horizontal scrollbar */
-}
-
-body::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.1); /* Light gray background */
-    border-radius: 10px;
-}
-
-body::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.5); /* Darker gray background */
-    border-radius: 10px;
-}
-
-body::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 0, 0.7); /* Even darker on hover */
-}
-
-body::-webkit-scrollbar-thumb:active {
-    background: rgba(0, 0, 0, 0.9); /* Even darker when active */
-}
-
+  <link rel="stylesheet" href="/Google-authenticator-ui/css/custom.css"/>
   </style>
   <body class="m-2">
     <nav class="d-flex justify-content-between m-2 align-items-center"> 
@@ -112,7 +42,7 @@ body::-webkit-scrollbar-thumb:active {
         <div class="offcanvas-header">
           <button
             type="button"
-            class="btn-close"
+            class="btn-close canvas-close-btn"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           ></button>
@@ -120,17 +50,134 @@ body::-webkit-scrollbar-thumb:active {
         <div class="offcanvas-body">
           <div>
             <ul>
-              <li><a href="#">Authenticator codes</a></li>
-              <li><a href="#">How it works</a></li>
-              <li><a href="#">Transfer accounts</a></li>
-              <li><a href="#">Settings</a></li>
-              <li><a href="#">Help</a></li>
-              <li><a href="#">Send feedback</a></li>
+              <li><a type="button" data-bs-toggle="modal" data-bs-target="#auth-codes-modal">
+                Authenticator codes
+              </a></li>
+              <li><a type="button" data-bs-toggle="modal" data-bs-target="#how-it-works-modal">
+                How it works
+              </a></li>
+              <li><a type="button" data-bs-toggle="modal" data-bs-target="#transfer-accounts-modal">
+                Transfer accounts
+              </a></li>
+              <li><a type="button" data-bs-toggle="modal" data-bs-target="#settings-modal">
+                Settings
+              </a></li>
+              <li><a type="button" data-bs-toggle="modal" data-bs-target="#help-modal">
+                Help
+              </a></li>
+              <li><a type="button" data-bs-toggle="modal" data-bs-target="#feedback-modal">
+                Send feedback
+              </a></li>
             </ul>
           </div>
         </div>
       </div>
     </nav>
+    <!-- modals  -->
+<!-- settongs modal -->
+    <div class="modal fade" id="settings-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Settings</h1>
+            <button type="button" class="btn-close user-deleted-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p class="fs-5">Are you sure you want to delete your accounts and codes?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
+            <button type="button" id="delete-all-user-data-btn" class="btn btn-secondary">Confirm Deletion</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- how it works -->
+    <div class="modal fade" id="how-it-works-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">How it works</h1>
+          <button type="button" class="btn-close user-deleted-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="fs-5">
+            Google Authenticator is a mobile app that implements multi-factor authentication (MFA) using Time-based One-Time Password (TOTP) and HMAC-based One-Time Password (HOTP) algorithms to provide an additional layer of security for user accounts. Here's an overview of how Google Authenticator works:
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- transfer account modal -->
+  <div class="modal fade" id="transfer-accounts-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Transfer accounts</h1>
+          <button type="button" class="btn-close user-deleted-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="fs-5">
+            Sorry you don't have the access to transfer account,Please contact support to transfer accounts
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- auth codes -->
+  <div class="modal fade" id="auth-codes-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Auth codes</h1>
+          <button type="button" class="btn-close user-deleted-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="fs-5">
+            Please close this modal,all codes will be visible on your screen
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- help modal -->
+   
+  <div class="modal fade" id="help-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Help and support</h1>
+          <button type="button" class="btn-close user-deleted-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="fs-5">
+            Our team is always there to help you please contact us by email at Support@Google-authenticator.com
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- feedback modal -->
+  <div class="modal fade" id="feedback-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Your feedback help us improve</h1>
+          <button type="button" class="btn-close user-deleted-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="fs-5">
+            <input type="text" class="form-control" id="exampleInputPassword1">
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" data-bs-dismiss="modal" aria-label="Close" id="delete-all-user-data-btn" class="btn btn-primary">Send Feedback</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <!-- search-box -->
      <div class="container-fluid px-4">
         <input type="text" id="search-box" class="form-control shadow-sm py-3" placeholder="Search..." style="border: none;background-color: rgb(63, 63, 63);">
@@ -138,15 +185,6 @@ body::-webkit-scrollbar-thumb:active {
 <!-- all users info -->
  <div class="container-fluid px-4 mt-1">
     <ul class="list-group list-group-flush users-container">
-        <li class="list-group-item d-flex justify-content-between user-li">
-            <div class="user-info" style="width: 100%;">
-                <p class="fw-normal fs-6 useraccount-name">Instagram: username: mynameisflash</p>
-                <div class="d-flex align-items-center justify-content-between">
-                    <h1 class="user-account-code bb-front">238 293</h1>
-                    <div class="circle-timer"></div>
-                </div>
-            </div>
-        </li>
       </ul>
  </div>
 

@@ -5,27 +5,42 @@ let add_btn = document.querySelector(".add-btn");
 let user_info_input = document.querySelector("#user-info-input");
 let modal_close_btn = document.querySelector("#modal_close_btn");
 let delete_user_data_btn = document.querySelector('#delete-all-user-data-btn')
-
+let user_delelted_modal_close_btn = document.querySelector('.user-deleted-close')
+let canvas_close_btn = document.querySelector('.canvas-close-btn')
 // on page load
+
+// input by default selected
 
 window.addEventListener('load', () => {
   if(localStorage.getItem('user') != null){
-  userdatacontainer.innerHTML = "";
+    userdatacontainer.innerHTML = "";
   let array_of_users = localStorage.getItem('user').split(',')
   console.log(array_of_users)
   update_users(array_of_users)
 }else{
-  userdatacontainer.innerHTML= 'no user data found'
+  userdatacontainer.innerHTML= '<p class="text-center my-3">No user data</p>'
 }
 });
 
 // delete user data function
 delete_user_data_btn.addEventListener('click', () => {
   localStorage.clear()
-  update_users()
+  userdatacontainer.innerHTML = '<p class="text-center my-3">No user data</p>'
+  user_delelted_modal_close_btn.click()
+  canvas_close_btn.click()
 })
 
 // usre data
+
+
+user_info_input.addEventListener('keydown',(e)=>{
+  if(e.key == 'Enter'){
+    add_btn.click()
+  }
+  else{
+    return
+  }
+})
 
 // add user function
 add_btn.addEventListener("click", () => {
@@ -34,8 +49,12 @@ add_btn.addEventListener("click", () => {
     return;
   }
   addthisuser(user_info_input.value);
+  if(localStorage.getItem('user') != null){
   array_of_users = localStorage.getItem("user").split(",");
   array_of_users.push(user_info_input.value);
+}else{
+  array_of_users = [user_info_input.value]
+}
   localStorage.setItem("user", array_of_users);
   update_users()
   user_info_input.value = "";
