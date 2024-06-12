@@ -57,7 +57,33 @@
             background:rgb(86, 86, 86);
             box-shadow: 2px 2px 5px rgba(2, 2, 2, 0.446);
         }
-        
+        body {
+    overflow: auto;
+}
+
+body::-webkit-scrollbar {
+    width: 8px; /* Width of the vertical scrollbar */
+    height: 8px; /* Height of the horizontal scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Light gray background */
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5); /* Darker gray background */
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.7); /* Even darker on hover */
+}
+
+body::-webkit-scrollbar-thumb:active {
+    background: rgba(0, 0, 0, 0.9); /* Even darker when active */
+}
+
   </style>
   <body class="m-2">
     <nav class="d-flex justify-content-between m-2 align-items-center"> 
