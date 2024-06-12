@@ -86,6 +86,8 @@ window.addEventListener('online', () => {
   });
   
 
+
 // search function
 // image change feature
 // search bar
+
